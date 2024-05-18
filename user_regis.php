@@ -1,3 +1,120 @@
+<?php
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Include the database connection file
+include 'db_connection.php';
+
+// Define variables and initialize with empty values
+$username = $email = $password = $age = $address = "";
+$username_err = $email_err = $password_err = $age_err = $address_err = "";
+
+// Processing form data when form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate username
+    if (empty(trim($_POST["username"]))) {
+        $username_err = "Please enter a username.";
+    } else {
+        // Prepare a select statement to check if the username already exists
+        $sql = "SELECT user_id FROM users WHERE username = ?";
+
+        if ($stmt = $conn->prepare($sql)) {
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param("s", $param_username);
+
+            // Set parameters
+            $param_username = trim($_POST["username"]);
+
+            // Attempt to execute the prepared statement
+            if ($stmt->execute()) {
+                // Store result
+                $stmt->store_result();
+
+                if ($stmt->num_rows == 1) {
+                    $username_err = "This username is already taken.";
+                } else {
+                    $username = trim($_POST["username"]);
+                }
+            } else {
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+
+    // Validate email
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Please enter an email.";
+    } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $email_err = "Invalid email format.";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+
+    // Validate password
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Please enter a password.";
+    } elseif (strlen(trim($_POST["password"])) < 6) {
+        $password_err = "Password must have at least 6 characters.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
+
+    // Validate age
+    if (empty(trim($_POST["age"]))) {
+        $age_err = "Please enter your age.";
+    } elseif (!is_numeric(trim($_POST["age"])) || trim($_POST["age"]) < 0) {
+        $age_err = "Please enter a valid age.";
+    } else {
+        $age = trim($_POST["age"]);
+    }
+
+    // Validate address
+    if (empty(trim($_POST["address"]))) {
+        $address_err = "Please enter your address.";
+    } else {
+        $address = trim($_POST["address"]);
+    }
+
+    // Check input errors before inserting into database
+    if (empty($username_err) && empty($email_err) && empty($password_err) && empty($age_err) && empty($address_err)) {
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Prepare an insert statement
+        $sql = "INSERT INTO Users (username, email, password, age, address) VALUES (?, ?, ?, ?, ?)";
+
+        if ($stmt = $conn->prepare($sql)) {
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param("sssds", $param_username, $param_email, $param_password, $param_age, $param_address);
+
+            // Set parameters
+            $param_username = $username;
+            $param_email = $email;
+            $param_password = $hashed_password; // Hashed password
+            $param_age = $age;
+            $param_address = $address;
+
+            // Attempt to execute the prepared statement
+            if ($stmt->execute()) {
+                // Redirect to login page or success page
+                header("location: index.html");
+            } else {
+                echo "Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+
+    // Close connection
+    $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
