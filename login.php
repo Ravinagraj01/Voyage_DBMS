@@ -104,6 +104,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="sign_up.html">
             <button class="button1">Sign Up?</button>
         </a>
+        <a href="cities.html">
+	     <button class="button1">Log in</button>
+	</a>
     </div>
     <script src="script.js"></script>
 </body>
