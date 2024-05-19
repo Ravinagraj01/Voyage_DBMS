@@ -101,4 +101,7 @@ input{
 	top: 22px;
 
 }
+a{
+	text-decoration: none; /* Remove underline */
+}
 

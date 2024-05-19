@@ -56,5 +56,8 @@ body{
     height: 230px;
 	background-image: image("C:\Users\mahes\Desktop\DBMS_Project\images\australia.jpg");
 }
+a{
+	text-decoration: none; /* Remove underline */
+}
 
   

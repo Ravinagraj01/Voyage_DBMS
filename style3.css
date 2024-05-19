@@ -6,25 +6,28 @@ body{
 	background-color: black;
 }
 
-.img{
-	display: flex;
-	position: relative;
-
-.card1{
-	padding: 23px;	
-}
-
-.card2{
-	padding: 23px;	
-}
-
-.card3{
-	padding: 23px;	
-}
-
 .about_us{
 	color: white;
 	padding: 23px;
 	font-size: 20px;
 	text-align: center;
+}
+
+.card{
+	flex: 0 0 auto;
+	width: 33.33333333%;
+	display: flex;
+	justify-content: center;
+	margin:auto;
+	background-color: #2b2a2a;
+	border: 2px solid #535353;
+}
+
+
+.row{
+	padding: 30px;
+}
+
+.card-title{
+	color: white;
 }
