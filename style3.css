@@ -51,5 +51,33 @@ body{
 
   .description{
 	padding:23px ;
+	font-size: larger;
+	
 	
   }
+
+  .container{
+	margin: 0px;
+  }
+  .details{
+	color: white;
+	padding: 30px;
+	font-size: larger;
+	
+  }
+  .reviews{
+	color: white;
+	padding: 25px;
+	font-size: larger;
+  }
+
+  .recommendation{
+	padding: 23px;
+	color: white;
+	font-size: larger;
+  }
+
+  
+
+ 
+  
