@@ -31,3 +31,25 @@ body{
 .card-title{
 	color: white;
 }
+
+.carousel-container {
+	height: 70vh; /* 50% of the viewport height */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  .carousel-inner img {
+	height: 70vh;
+	object-fit: cover;
+	border-radius: 18px;
+  }
+  .carousel {
+	width: 85%;
+	margin: auto;
+	padding: 43px;
+  }
+
+  .description{
+	padding:23px ;
+	
+  }
