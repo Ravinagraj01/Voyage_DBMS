@@ -13,6 +13,6 @@ $conn = new mysqli($servername, $username, $password, $database);
 //    echo "Connection Succes";
 //}
 //else{
-    echo "Connection Failed";
+    // echo "Connection Failed";
 //}
 ?>
