@@ -79,7 +79,7 @@
 		  <div class="description">
 			<div style="color: white;">
 				<h3 style="color: red;">Description :<br></h3>
-				<p>At 4,478 metres, the majestic Matterhorn, also called the "jewel of the Swiss Alps" and certainly the most famous mountain in Europe, looms over the breathtaking Alpine panorama. This Switzerland landmark is at the border of the western Swiss canton of Valais between Zermatt and the Italian resort of Breuil-Cervinia, and offers a paradise for all nature-lovers looking for peace and quiet. Its symmetric pyramid shape, the rocky tooth reaching the sky and the light reflections of the nearby Stellisee make the Matterhorn’s landscape a unique natural spectacle in Zermatt..</p>
+				<p>At 4,478 metres, the majestic Matterhorn, also called the "Jewel of the Swiss Alps" and certainly the most famous mountain in Europe, looms over the breathtaking Alpine panorama. This Switzerland landmark is at the border of the western Swiss canton of Valais between Zermatt and the Italian resort of Breuil-Cervinia, and offers a paradise for all nature-lovers looking for peace and quiet. Its symmetric pyramid shape, the rocky tooth reaching the sky and the light reflections of the nearby Stellisee make the Matterhorn’s landscape a unique natural spectacle in Zermatt..</p>
 			</div>
 		  </div>
 
@@ -116,17 +116,52 @@
 				
 					<div class="reviews">
 						<h3 style="color: red;">Reviews :</h3>
-						<p><b>1. Sarah</b> (5/5):<br> "Visiting the Sydney Opera House was a dream come true! The architecture is even more breathtaking in person, and catching a performance inside was an unforgettable experience. A definite highlight of my trip to Australia."</p>
-		
-						<p><b>2. James</b> (4/5):<br> "The Sydney Opera House is simply mesmerizing. I couldn't stop taking photos from every angle! The guided tour was informative, and getting to see behind the scenes was fascinating. Highly recommend to anyone visiting Sydney."</p>
-						
-						<p><b>3. Maria</b> (5/5):<br> "As a lover of performing arts, visiting the Sydney Opera House was a dream come true. The acoustics in the concert hall are incredible, and the atmosphere during the performance was electric. I'll cherish the memories of my visit forever."</p>
-						
-						<p><b>4. John</b> (4.5/5):<br> "Even if you're not into opera or theater, the Sydney Opera House is a must-see. The architecture alone is worth the visit, and the views of the harbor from the outdoor platforms are breathtaking. A true icon of Sydney!"</p>
-						
-						<p><b>5. Emily</b> (4/5):<br> "I was blown away by the Sydney Opera House! It's such an iconic landmark, and seeing it up close was incredible. I didn't get a chance to catch a performance, but even just wandering around the exterior was a highlight of my trip."</p>
+	
+						<?php if (isset($message)): ?>
+							<div class="alert alert-info"><?php echo $message; ?></div>
+						<?php endif; ?>
+	
+						<!-- Review Form -->
+						<form id="reviewForm" method="POST" action="">
+							<div class="form-group">
+								<label for="user_id">User ID:</label>
+								<input type="text" class="form-control" id="user_id" name="user_id" required>
+							</div>
+							<div class="form-group">
+								<label for="username">Username:</label>
+								<input type="text" class="form-control" id="username" name="username" required>
+							</div>
+							<div class="form-group">
+								<label for="location_id">Location ID:</label>
+								<input type="text" class="form-control" id="location_id" name="location_id" value="1" readonly>
+							</div>
+							<div class="form-group">
+								<label for="rating">Rating:</label>
+								<select class="form-control" id="rating" name="rating" required>
+									<option value="5">5</option>
+									<option value="4">4</option>
+									<option value="3">3</option>
+									<option value="2">2</option>
+									<option value="1">1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="comment">Review:</label>
+								<textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+	
+						<!-- Display Reviews -->
+						<div id="reviewList">
+							<?php foreach ($reviews as $review): ?>
+								<p><b>User ID: <?php echo htmlspecialchars($review['user_id']); ?> (Username: <?php echo htmlspecialchars($review['username']); ?>)</b> (<?php echo $review['rating']; ?>/5):<br>
+								<?php echo htmlspecialchars($review['comment']); ?><br>
+								<small>Reviewed on: <?php echo $review['created_at']; ?></small></p>
+							<?php endforeach; ?>
+						</div>
 					</div>
-				</div>
+				
 
 				<div class="recommendation">
 					<h3 style="color: red;">Recommendations :</h3>
