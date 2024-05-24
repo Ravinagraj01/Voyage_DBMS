@@ -9,10 +9,10 @@ $database = "tourist_recommendation"; // your database name
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
-if ($conn) {
-    echo "Connection Succes";
-}
-else{
-    echo "Connection Failed";
-}
+//if ($conn) {
+//    echo "Connection Succes";
+//}
+//else{
+    // echo "Connection Failed";
+//}
 ?>

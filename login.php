@@ -58,15 +58,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: home.html");
+                            header("location: cities.php");
+                            exit;
                         } else {
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+                            $login_err = "Invalid password.";
                         }
                     }
                 } else {
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $username_err = "No account found with that username.";
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
@@ -81,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,19 +96,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="subtitle">Explore a new age of travelling</div>
     <div class="signin">
         <div class="signup">Log In</div>
-        <form action="login.php" method="post">
+        <?php 
+        if(!empty($login_err)){
+            echo '<div class="error">' . $login_err . '</div>';
+        }
+        if(!empty($username_err)){
+            echo '<div class="error">' . $username_err . '</div>';
+        }
+        if(!empty($password_err)){
+            echo '<div class="error">' . $password_err . '</div>';
+        }
+        ?>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div>
                 <input type="text" id="username" name="username" placeholder="Username" required>
                 <input type="password" id="password" name="password" placeholder="Password" required>
-                <button type="submit" class="button1">Log in</button>
+                <button class="button1" type="submit">Log In</button>
             </div>
         </form>
         <a href="sign_up.html">
             <button class="button1">Sign Up?</button>
         </a>
-        <a href="cities.html">
-	     <button class="button1">Log in</button>
-	</a>
     </div>
     <script src="script.js"></script>
 </body>
