@@ -31,13 +31,13 @@
 					<a class="nav-link" href="about.html" style="color: white;">About</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="index.html" style="color: white;">Log out</a>
+					<a class="nav-link" href="login.php" style="color: white;">Log out</a>
 				  </li>
 				</ul>
-				<form class="d-flex" role="search">
-				  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-				  <button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
+				<form class="d-flex" action="search.php" method="GET">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>				
 			  </div>
 			</div>
 		  </nav>
@@ -136,7 +136,7 @@
 				<img src="swizerland.png" class="card-img-top" alt="China">
 				<div class="card-body">
 				  <h5 class="card-title">Swizerland</h5>
-				  <a href="#" class="btn btn-primary">Visit Swizerland</a>
+				  <a href="switzerland.html" class="btn btn-primary">Visit Swizerland</a>
 				</div>
 			  </div>
 			</div>
