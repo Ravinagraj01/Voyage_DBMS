@@ -215,7 +215,7 @@ $conn->close();
                                 <div class="card-body">
                                     <h5 class="card-title">Park Hyatt Sydney</h5>
                                     <p class="card-text">Nestled on the edge of Sydney Harbour, Park Hyatt Sydney offers an unparalleled luxury experience with stunning views of the Sydney Opera House and Harbour Bridge.</p>
-                                    <a href="australia_sydeny_open_house.html" class="btn btn-primary">Book</a>
+                                    <a href="https://www.hyatt.com/en-US/hotel/australia/park-hyatt-sydney/sydph?src=agn_resmedau_corp_sem_google_Search_Goo_SYDPH_IN_Brand_EM_Search_SYDPH_IN_Brand_EM_park+hyatt+sydney&gad_source=1&gclid=Cj0KCQjw0ruyBhDuARIsANSZ3wrPU-LKhy1OyJ5Fd8raFZUcUxvOheUQHa8X_H9_EP765QUL16-ZL8oaAgP6EALw_wcB&gclsrc=aw.ds" class="btn btn-primary">Check out</a>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +225,7 @@ $conn->close();
                                 <div class="card-body">
                                     <h5 class="card-title">Shangri-La Hotel, Sydney</h5>
                                     <p class="card-text">Shangri-La Hotel, Sydney, located in the historic Rocks district, offers world-class luxury and some of the best panoramic views of Sydney Harbour, including the Opera House.</p>
-                                    <a href="#" class="btn btn-primary">Book</a>
+                                    <a href="https://www.shangri-la.com/sydney/shangrila/" class="btn btn-primary">Check out</a>
                                 </div>
                             </div>
                         </div>
@@ -234,8 +234,8 @@ $conn->close();
                                 <img src="aus-syd-hotel-3.webp" class="card-img-top" alt="Canada">
                                 <div class="card-body">
                                     <h5 class="card-title">InterContinental Sydney</h5>
-                                    <p class="card-text">InterContinental Sydney is a heritage hotel located in a beautifully restored 19th-century building, offering a blend of historic charm and modern luxury with excellent views of the Sydney Opera House.</p>
-                                    <a href="#" class="btn btn-primary">Book</a>
+                                    <p class="card-text">InterContinental Sydney is a heritage hotel in a restored 19th-century building, combining historic charm and modern luxury with excellent views of the Sydney Opera House.</p>
+                                    <a href="https://www.sydney.intercontinental.com/" class="btn btn-primary">Check out</a>
                                 </div>
                             </div>
                         </div>
