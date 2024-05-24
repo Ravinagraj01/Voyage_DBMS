@@ -22,7 +22,7 @@ if (isset($_GET['query'])) {
         
         // Construct the filename for the PHP file corresponding to the city
         $php_file = strtolower(str_replace(' ', '_', $row['location_name'])) . '.php';
-
+        
         // Check if the PHP file exists
         if (file_exists($php_file)) {
             // Redirect to the corresponding PHP file
