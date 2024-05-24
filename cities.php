@@ -155,7 +155,7 @@ if (isset($_GET['query'])) {
 				<img src="india.jpg" class="card-img-top" alt="india">
 				<div class="card-body">
 				  <h5 class="card-title">India</h5>
-				  <a href="#" class="btn btn-primary">Visit India</a>
+				  <a href="india.html" class="btn btn-primary">Visit India</a>
 				</div>
 			  </div>
 			</div>
