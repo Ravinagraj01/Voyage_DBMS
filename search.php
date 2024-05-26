@@ -2,6 +2,11 @@
 // Include database connection file
 include 'db_connection.php';
 
+// Function to convert space to underscore in filename
+function convertToFilename($str) {
+    return strtolower(str_replace(' ', '_', $str));
+}
+
 // Check if the query parameter is set in the URL
 if (isset($_GET['query'])) {
     // Get the search query from the URL
@@ -21,12 +26,17 @@ if (isset($_GET['query'])) {
         $row = $result->fetch_assoc();
         
         // Construct the filename for the PHP file corresponding to the city
-        $php_file = strtolower(str_replace(' ', '_', $row['location_name'])) . '.php';
-        
-        // Check if the PHP file exists
-        if (file_exists($php_file)) {
-            // Redirect to the corresponding PHP file
-            header("Location: $php_file");
+        $php_file_with_spaces = strtolower($row['location_name']) . '.php';
+        $php_file_with_underscores = convertToFilename($row['location_name']) . '.php';
+
+        // Check if the PHP file exists with or without underscores
+        if (file_exists($php_file_with_spaces)) {
+            // Redirect to the corresponding PHP file with spaces
+            header("Location: $php_file_with_spaces");
+            exit();
+        } elseif (file_exists($php_file_with_underscores)) {
+            // Redirect to the corresponding PHP file with underscores
+            header("Location: $php_file_with_underscores");
             exit();
         } else {
             // Display a message if the PHP file doesn't exist

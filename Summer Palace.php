@@ -109,7 +109,7 @@ $conn->close();
                     </div>
                 </div>
             </nav>
-            <h1 style="color: white; padding: 12px; text-align: center; color: red;">Monday Palace</h1>
+            <h1 style="color: white; padding: 12px; text-align: center; color: red;">Summer Palace</h1>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -151,14 +151,14 @@ $conn->close();
             <div class="description">
                 <div style="color: white;">
                     <h3 style="color: red;">Description :</h3>
-                    <p>Monday Palace is a historical landmark located in the heart of the city. It served as the royal residence for monarchs during the ancient dynasty. The palace features stunning architecture, expansive gardens, and rich cultural heritage. Visitors can explore the intricately decorated halls, beautiful courtyards, and serene ponds that reflect the grandeur of a bygone era.</p>
+                    <p>Summer Palace is a historical landmark located in the heart of the city. It served as the royal residence for monarchs during the ancient dynasty. The palace features stunning architecture, expansive gardens, and rich cultural heritage. Visitors can explore the intricately decorated halls, beautiful courtyards, and serene ponds that reflect the grandeur of a bygone era.</p>
                 </div>
             </div>
 
             <div class="container">
                 <div class="details">
                     <h3 style="color: red;">Details :</h3>
-                    <p>Here are the details for visiting Monday Palace:</p>
+                    <p>Here are the details for visiting Summer Palace:</p>
                     
                     <b>Timings:</b>
                     <ul>
@@ -231,7 +231,7 @@ $conn->close();
             
                 <div class="recommendation">
                     <h3 style="color: red;">Recommendations :</h3>
-                    <p>If you are seeking exceptional lodging experiences during your visit to Monday Palace, consider these reputable hotels:</p>
+                    <p>If you are seeking exceptional lodging experiences during your visit to Summer Palace, consider these reputable hotels:</p>
                     
                     <div class="row justify-content-between">
                         <div class="col-md-4">
