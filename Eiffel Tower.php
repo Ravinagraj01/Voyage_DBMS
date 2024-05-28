@@ -120,7 +120,7 @@ $conn->close();
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="./eiffel1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="./eiffel6.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="./eiffel2.jpg" alt="Second slide">
@@ -135,7 +135,7 @@ $conn->close();
                         <img class="d-block w-100" src="./eiffel5.jpg" alt="Fifth slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./eiffel6.jpg" alt="Sixth slide">
+                        <img class="d-block w-100" src="./eiffel1.jpg" alt="Sixth slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -231,7 +231,7 @@ $conn->close();
                     <div class="row justify-content-between">
                         <div class="col-md-4">
                             <div class="card" style="width: 24rem;">
-                                <img src="./hotel1.jpg" class="card-img-top" alt="Hotel 1">
+                                <img src="./eiffel_h1.jpg" class="card-img-top" alt="Hotel 1">
                                 <div class="card-body">
                                     <h5 class="card-title">Four Seasons Hotel George V Paris</h5>
                                     <p class="card-text">Indulge in luxury at the Four Seasons Hotel George V Paris, offering elegant accommodations, Michelin-starred dining, and a spa in the heart of Paris.</p>
@@ -241,7 +241,7 @@ $conn->close();
                         </div>
                         <div class="col-md-4">
                             <div class="card" style="width: 24rem;">
-                                <img src="./hotel2.jpg" class="card-img-top" alt="Hotel 2">
+                                <img src="./eiffel_h2.jpg" class="card-img-top" alt="Hotel 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Shangri-La Hotel Paris</h5>
                                     <p class="card-text">Experience refined luxury at the Shangri-La Hotel Paris, housed in a historic palace near the Eiffel Tower, offering stunning views and impeccable service.</p>
@@ -251,7 +251,7 @@ $conn->close();
                         </div>
                         <div class="col-md-4">
                             <div class="card" style="width: 24rem;">
-                                <img src="./hotel3.jpg" class="card-img-top" alt="Hotel 3">
+                                <img src="./eiffel_h3.webp" class="card-img-top" alt="Hotel 3">
                                 <div class="card-body">
                                     <h5 class="card-title">The Peninsula Paris</h5>
                                     <p class="card-text">Discover luxury at The Peninsula Paris, featuring elegant rooms, a rooftop restaurant with panoramic views, and a spa offering rejuvenating treatments.</p>
