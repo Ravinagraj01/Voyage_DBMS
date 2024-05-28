@@ -126,7 +126,7 @@ if (isset($_GET['query'])) {
 				<img src="china.jpg" class="card-img-top" alt="China">
 				<div class="card-body">
 				  <h5 class="card-title">China</h5>
-				  <a href="#" class="btn btn-primary">Visit China</a>
+				  <a href="china.html" class="btn btn-primary">Visit China</a>
 				</div>
 			  </div>
 			</div>
@@ -135,7 +135,7 @@ if (isset($_GET['query'])) {
 				<img src="egypt.jpg" class="card-img-top" alt="brazil">
 				<div class="card-body">
 				  <h5 class="card-title">Egypt</h5>
-				  <a href="#" class="btn btn-primary">Visit Egypt</a>
+				  <a href="egypt.html" class="btn btn-primary">Visit Egypt</a>
 				</div>
 			  </div>
 			</div>
@@ -144,7 +144,7 @@ if (isset($_GET['query'])) {
 				<img src="france.webp" class="card-img-top" alt="Canada">
 				<div class="card-body">
 				  <h5 class="card-title">France</h5>
-				  <a href="#" class="btn btn-primary">Visit France</a>
+				  <a href="france.html" class="btn btn-primary">Visit France</a>
 				</div>
 			  </div>
 			</div>
