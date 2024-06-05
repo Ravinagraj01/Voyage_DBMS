@@ -94,7 +94,7 @@ $conn->close();
                         <img class="d-block w-100" src="C:\xampp\htdocs\Voyage_DBMS\t1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="C:\xampp\htdocs\Voyage_DBMS\t2.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="" alt="Second slide">
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="C:\xampp\htdocs\Voyage_DBMS\t3.jpg" alt="Third slide">
