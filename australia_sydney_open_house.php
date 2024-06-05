@@ -204,6 +204,7 @@ $conn->close();
                         <?php endforeach; ?>
                     </div>
                 </div>
+				</div>
             
                 <div class="recommendation">
                     <h3 style="color: red;">Recommendations :</h3>
