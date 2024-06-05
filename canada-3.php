@@ -1,3 +1,51 @@
+<?php
+// Start the session
+session_start();
+
+// Include database connection file
+include 'db_connection.php';
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user_id = $_POST['user_id'];
+    $username = $_POST['username'];
+    $location_id = $_POST['location_id'];
+    $rating = $_POST['rating'];
+    $comment = $_POST['comment'];
+
+    $sql = "INSERT INTO reviews (user_id, username, location_id, rating, comment) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("isiis", $user_id, $username, $location_id, $rating, $comment);
+
+    if ($stmt->execute()) {
+        $message = "New review created successfully";
+    } else {
+        $message = "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+// Fetch all reviews for the specific location
+$location_id = 1; // Assuming 1 is the location_id for Sydney Opera House
+$sql = "SELECT user_id, username, rating, comment, created_at FROM reviews WHERE location_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $location_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$reviews = [];
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $reviews[] = $row;
+    }
+}
+
+$stmt->close();
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +54,7 @@
     <title>Toronto</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style3.css">
+	<link rel="stylesheet" href="style4.css">
   </head>
   <body>
     <div class="title1">
@@ -107,14 +156,52 @@
 			</div>
 		
 			<div class="reviews">
-				<h3 style="color: red;">Reviews :</h3>
-				<p><b>1. Maria</b> (5/5):<br> "Toronto is a fantastic city with so much to see and do. The views from the CN Tower are incredible, and the dining options are endless."</p>
-				<p><b>2. Carlos</b> (4.5/5):<br> "The Royal Ontario Museum was a highlight of our trip. The exhibits are fascinating, and the architecture is stunning."</p>
-				<p><b>3. Gabriela</b> (5/5):<br> "Kensington Market is a must-visit for anyone who loves unique shops and diverse food. The atmosphere is vibrant and welcoming."</p>
-				<p><b>4. Pedro</b> (4/5):<br> "We enjoyed exploring the Distillery District. The historic buildings and trendy shops make it a great place to spend an afternoon."</p>
-				<p><b>5. Ana</b> (4.5/5):<br> "The Toronto Islands offer a peaceful escape from the city with beautiful parks and stunning views of the skyline."</p>
-			</div>
-		</div>
+                    <h3 style="color: red;">Reviews :</h3>
+
+                    <?php if (isset($message)): ?>
+                        <div class="alert alert-info"><?php echo $message; ?></div>
+                    <?php endif; ?>
+
+                    <!-- Review Form -->
+                    <form id="reviewForm" method="POST" action="">
+                        <div class="form-group">
+                            <label for="user_id">User ID:</label>
+                            <input type="text" class="form-control" id="user_id" name="user_id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location_id">Location ID:</label>
+                            <input type="text" class="form-control" id="location_id" name="location_id" value="1" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating:</label>
+                            <select class="form-control" id="rating" name="rating" required>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Review:</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                    <!-- Display Reviews -->
+                    <div id="reviewList">
+                        <?php foreach ($reviews as $review): ?>
+                            <p><b>User ID: <?php echo htmlspecialchars($review['user_id']); ?> (Username: <?php echo htmlspecialchars($review['username']); ?>)</b> (<?php echo $review['rating']; ?>/5):<br>
+                            <?php echo htmlspecialchars($review['comment']); ?><br>
+                            <small>Reviewed on: <?php echo $review['created_at']; ?></small></p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
 		
 		
 
