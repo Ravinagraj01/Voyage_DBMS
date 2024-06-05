@@ -70,7 +70,7 @@ $conn->close();
 			 color: white;
 		 }
 		 .recommendation .card-body {
-			 background-color: black; /* Match the box color */
+			 background-color: rgb(112, 112, 112); /* Match the box color */
 		 }
 		 /* Add margin to the columns to create space between them */
 		 .row.justify-content-between > [class*="col-"] {
